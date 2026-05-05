@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexusDigital</title>
+
+    <style>
+        body {
+            background: #f5ecd9;
+            font-family: "Times New Roman", serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(90,59,28,0.05) 10%, transparent 60%);
+            animation: moveBg 20s linear infinite;
+            pointer-events: none; /* NÃO bloqueia clique */
+        }
+
+        @keyframes moveBg {
+            from { transform: translate(0,0); }
+            to { transform: translate(-50px, -50px); }
+        }
+
+        .container {
+            width: 500px;
+            margin: 120px auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .box {
+            background: #fffaf0;
+            padding: 40px;
+            border: 3px solid #5a3b1c;
+            box-shadow: 6px 6px 15px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* brilho NÃO interfere mais */
+        .box::after {
+            content: "";
+            position: absolute;
+            top: -100%;
+            left: -50%;
+            width: 200%;
+            height: 300%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255,255,255,0.2),
+                transparent
+            );
+            transform: rotate(25deg);
+            animation: shine 6s infinite;
+            pointer-events: none; /* ESSENCIAL */
+        }
+
+        @keyframes shine {
+            0% { top: -100%; }
+            100% { top: 100%; }
+        }
+
+        h1 {
+            color: #3b2a1a;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            color: #5a3b1c;
+            margin-bottom: 30px;
+            font-weight: normal;
+        }
+
+        a {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #5a3b1c;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.2s;
+            box-shadow: 0 4px 0 #3b2a1a;
+            position: relative;
+            z-index: 2; /* garante prioridade de clique */
+        }
+
+        a:hover {
+            background: #3b2a1a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 #2a1d12;
+        }
+
+        a:active {
+            transform: translateY(2px);
+            box-shadow: 0 1px 0 #2a1d12;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="box">
+            <h1>Bem vindo ao site NexusDigital</h1>
+            <h3>Nosso site é muito legal</h3>
+            <a href="Login.php">Venha criar uma conta no meu site</a>
+        </div>
+    </div>
+
+</body>
+</html>
